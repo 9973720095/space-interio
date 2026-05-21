@@ -1,6 +1,7 @@
 import React from 'react';
-import { Row, Col, Form, Input, Button, Typography } from 'antd';
-import { UserOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons';
+import { Row, Col, Form, Input, Button, Typography, message } from 'antd'; // message import add kiya
+import { UserOutlined, MailOutlined } from '@ant-design/icons';
+import axios from 'axios'; // ✅ axios import add kiya
 import './css/Hero.css';
 
 const { Title, Paragraph, Text } = Typography;
@@ -8,17 +9,44 @@ const { Title, Paragraph, Text } = Typography;
 const Hero = () => {
   const [form] = Form.useForm();
 
-  const onFormSubmit = (values) => {
-    console.log('SEO Dynamic Lead Captured:', values);
-    form.resetFields();
+  // ✅ API URL env se
+  const API_URL = process.env.REACT_APP_API_URL;
+
+  // ✅ onFormSubmit function replace kar
+  const onFormSubmit = async (values) => {
+    try {
+      const res = await axios.post(`${API_URL}/api/leads/calculate`, {
+        name: values.fullName,
+        phone: values.phoneNumber,
+        email: values.emailAddress
+      });
+
+      if (res.status === 200 || res.status === 201) {
+        // ✅ Meta Pixel Lead Event Fire
+        if (window.fbq) {
+          window.fbq('track', 'Lead', {
+            content_name: 'Kitchen Calculator Hero Form',
+            value: 0.00,
+            currency: 'INR'
+          });
+        }
+
+        message.success('Success! We will contact you soon.');
+        console.log('SEO Dynamic Lead Captured:', values);
+        form.resetFields();
+      }
+    } catch (error) {
+      console.error('Error submitting lead:', error);
+      message.error('Something went wrong. Please try again.');
+    }
   };
 
   return (
     <section className="hero-section-container" aria-label="Introduction and Quote Form">
       <div className="hero-background-overlay">
-        <Row 
-          gutter={[32, 40]} 
-          align="middle" 
+        <Row
+          gutter={[32, 40]}
+          align="middle"
           className="hero-content-wrapper"
         >
           {/* LEFT SIDE: SEO-Optimized Typography H1 Headings */}
@@ -26,7 +54,7 @@ const Hero = () => {
             <header>
               <Title level={1} className="hero-main-title">
                 Create the home <br />
-                <span className="hero-title-break">you love,</span> 
+                <span className="hero-title-break">you love,</span>
                 <span className="hero-highlight-accent"> that fit your budget</span>
               </Title>
             </header>
@@ -59,9 +87,9 @@ const Hero = () => {
                   name="fullName"
                   rules={[{ required: true, message: 'Please enter your full name' }]}
                 >
-                  <Input 
-                    prefix={<UserOutlined className="form-input-icon" />} 
-                    placeholder="First Name" 
+                  <Input
+                    prefix={<UserOutlined className="form-input-icon" />}
+                    placeholder="First Name"
                     className="hero-input-field"
                     aria-label="First Name"
                   />
@@ -75,9 +103,9 @@ const Hero = () => {
                     { pattern: /^[0-9]{10}$/, message: 'Please enter a valid 10-digit mobile number' }
                   ]}
                 >
-                  <Input 
-                    prefix={<span className="form-country-code">+91</span>} 
-                    placeholder="81234 56789" 
+                  <Input
+                    prefix={<span className="form-country-code">+91</span>}
+                    placeholder="81234 56789"
                     className="hero-input-field"
                     maxLength={10}
                     aria-label="Phone Number"
@@ -92,9 +120,9 @@ const Hero = () => {
                     { type: 'email', message: 'Please introduce a valid email format' }
                   ]}
                 >
-                  <Input 
-                    prefix={<MailOutlined className="form-input-icon" />} 
-                    placeholder="Enter Your Email" 
+                  <Input
+                    prefix={<MailOutlined className="form-input-icon" />}
+                    placeholder="Enter Your Email"
                     className="hero-input-field"
                     aria-label="Email Address"
                   />
@@ -102,10 +130,10 @@ const Hero = () => {
 
                 {/* Dynamic Submission CTA Button */}
                 <Form.Item className="m-0">
-                  <Button 
-                    type="primary" 
-                    htmlType="submit" 
-                    block 
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    block
                     className="hero-submit-cta"
                   >
                     Get Free Quote
