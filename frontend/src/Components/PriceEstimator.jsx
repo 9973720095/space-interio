@@ -41,12 +41,21 @@ const PriceEstimator = () => {
       console.log('Sending lead configuration payload...', leadPayload);
 
       // Post Request Pipeline hitting server execution port
-      const response = await axios.post('http://localhost:5000/api/leads/calculate', leadPayload);
+     const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/leads/calculate`, leadPayload);
 
       if (response.data.success) {
-        message.success('Quote generated! Design estimate saved securely in MongoDB.');
-        form.resetFields();
-      } else {
+  // ✅ Meta Pixel Lead Event Fire
+  if (window.fbq) {
+    window.fbq('track', 'Lead', {
+      content_name: `Price Estimator - ${selectedService}`,
+      value: 0.00,
+      currency: 'INR'
+    });
+  }
+  
+  message.success('Quote generated! Design estimate saved securely in MongoDB.');
+  form.resetFields();
+} else {
         console.warn('Backend custom error fallback tracked:', leadPayload);
         message.error('Database dropped transmission. Please check schema handling.');
       }

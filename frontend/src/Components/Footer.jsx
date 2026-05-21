@@ -14,7 +14,7 @@ const Footer = () => {
           <h4>Explore</h4>
           <ul>
             <li><a href="/kitchen">Modular Kitchen</a></li>
-            <li><a href="/wardrobe">Luxury Wardrobes</a></li>
+            <li><a href="/bedroom">Bedroom</a></li>
             <li><a href="/portfolio">Our Portfolio</a></li>
           </ul>
         </div>
