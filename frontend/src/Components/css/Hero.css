@@ -1,0 +1,147 @@
+.hero-section-container {
+  background-image: url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1600'); /* Premium placeholder texture matching video */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-background-overlay {
+  background: rgba(0, 0, 0, 0.5); /* Boosts readability score for SEO and accessibility text contrast */
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.hero-content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto !important;
+  padding: 0 24px;
+}
+
+/* --- Left Typography Typography Styles --- */
+.hero-main-title.ant-typography {
+  color: #ffffff !important;
+  font-size: 3.5rem !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  margin: 0 0 24px 0 !important;
+  letter-spacing: -0.5px;
+}
+
+.hero-highlight-accent {
+  color: #ffcc00; /* Custom premium highlighting */
+}
+
+.hero-description-text.ant-typography {
+  color: #e6e6e6 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+  max-width: 540px;
+  margin: 0 !important;
+}
+
+/* --- Right Side Lead Card Box Styles --- */
+.hero-lead-card {
+  background: #ffffff;
+  padding: 40px 35px;
+  border-radius: 12px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  max-width: 440px;
+  margin: 0 push 0 auto;
+}
+
+.card-header-group {
+  margin-bottom: 28px;
+}
+
+.hero-card-title.ant-typography {
+  font-size: 1.6rem !important;
+  font-weight: 700 !important;
+  color: #1f1f1f !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.3 !important;
+}
+
+.hero-card-tagline.ant-typography {
+  font-size: 0.95rem !important;
+  color: #737373 !important;
+  display: block;
+}
+
+/* Form Input Configurations */
+.hero-input-field {
+  height: 48px !important;
+  border-radius: 6px !important;
+  font-size: 1rem !important;
+}
+
+.form-input-icon {
+  color: #bfbfbf;
+}
+
+.form-country-code {
+  color: #434343;
+  font-weight: 600;
+  border-right: 1px solid #d9d9d9;
+  padding-right: 10px;
+  margin-right: 4px;
+}
+
+/* Call to Action Primary Button */
+.hero-submit-cta {
+  background-color: #ff0000 !important;
+  border-color: #ff0000 !important;
+  height: 50px !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-radius: 6px !important;
+  margin-top: 10px;
+}
+
+.hero-submit-cta:hover {
+  background-color: #d30000 !important;
+  border-color: #d30000 !important;
+}
+
+/* --- ADVANCED RESPONSIVE MEDIA BREAKPOINTS --- */
+@media (max-width: 991px) {
+  .hero-background-overlay {
+    padding: 40px 0;
+  }
+  
+  .hero-text-block {
+    text-align: center;
+  }
+  
+  .hero-main-title.ant-typography {
+    font-size: 2.5rem !important;
+  }
+  
+  .hero-description-text.ant-typography {
+    margin: 0 auto !important;
+    font-size: 1.1rem !important;
+  }
+  
+  .hero-lead-card {
+    margin: 20px auto 0 auto; /* Form dynamically centers on tablet/mobile views */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-main-title.ant-typography {
+    font-size: 2rem !important;
+  }
+  
+  .hero-lead-card {
+    padding: 25px 20px;
+  }
+}

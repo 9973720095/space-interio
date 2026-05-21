@@ -1,0 +1,37 @@
+/* Container styling */
+.projects-section {
+  padding: 80px 5%;
+  background-color: #ffffff;
+}
+
+/* Card Styling */
+.project-card {
+  border: 1px solid #f0f0f0 !important;
+  border-radius: 12px !important;
+  transition: all 0.4s ease !important;
+  overflow: hidden;
+}
+
+/* Hover Effect: Card thoda upar uthega aur shadow badhegi */
+.project-card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Image Placeholder (Jab tak real photos nahi hain) */
+.project-img-placeholder {
+  height: 250px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Mobile responsive settings */
+@media (max-width: 768px) {
+  .projects-section {
+    padding: 40px 10px;
+  }
+}

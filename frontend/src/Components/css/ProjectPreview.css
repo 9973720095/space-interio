@@ -1,0 +1,28 @@
+.project-preview-section {
+  padding: 80px 20px;
+  background: #1a1a1a; /* Form wale section se bilkul alag dark background */
+  color: white;
+}
+
+.preview-card {
+  background: #2a2a2a !important;
+  border: none !important;
+  border-radius: 15px !important;
+  text-align: center;
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.preview-card:hover {
+  transform: translateY(-10px);
+}
+
+.icon-wrapper {
+  font-size: 40px;
+  color: #ffcc00; /* Gold accent for trust */
+  margin-bottom: 20px;
+}
+
+.preview-card h4, .preview-card span {
+  color: white !important;
+}

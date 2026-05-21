@@ -1,0 +1,239 @@
+.testimonials-section-wrapper {
+  background-color: #fafafa;
+  padding: 100px 0;
+  border-bottom: 1px solid #f0f0f0;
+  width: 100%;
+}
+
+.testimonials-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.testimonials-main-title.ant-typography {
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+  color: #1a1a1a !important;
+  margin: 6px 0 16px 0 !important;
+  letter-spacing: -0.5px;
+}
+
+.testimonials-subtext.ant-typography {
+  font-size: 1.15rem !important;
+  color: #555555 !important;
+  max-width: 700px;
+  margin: 0 auto !important;
+  line-height: 1.6;
+}
+
+/* --- High-Fidelity Autoplay Card Systems --- */
+.testimonial-video-card {
+  background: #ffffff !important;
+  border-radius: 16px !important;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02) !important;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08) !important;
+}
+
+.video-viewport-frame {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.autoplay-card-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.live-handover-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ff0000;
+  color: #ffffff;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 4px;
+  letter-spacing: 1px;
+}
+
+.testimonial-content-card-body {
+  padding: 28px;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.rating-stars-row {
+  margin-bottom: 12px;
+}
+
+.star-gold {
+  color: #ffb800;
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+.review-inner-headline.ant-typography {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  color: #141414 !important;
+  margin: 0 0 10px 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* --- ADVANCED 3-LINE LOCKING CLAMP MECHANISM --- */
+.testimonial-quote-text.ant-typography.line-clamp-3 {
+  display: -webkit-box !important;
+  -webkit-line-clamp: 3 !important; /* Perfect 3-line constraint constraint */
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  line-height: 1.6 !important;
+  color: #4a4a4a !important;
+  margin-bottom: 8px !important;
+}
+
+.read-more-popup-btn.ant-btn {
+  padding: 0 !important;
+  color: #ff0000 !important;
+  font-weight: 600 !important;
+  font-size: 0.95rem !important;
+  text-align: left;
+  align-self: flex-start;
+  margin-bottom: 20px;
+}
+
+.read-more-popup-btn.ant-btn:hover {
+  color: #b30000 !important;
+}
+
+.testimonial-client-footer {
+  border-top: 1px solid #f0f0f0;
+  padding-top: 18px;
+  margin-top: auto;
+}
+
+.client-meta-name.ant-typography {
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  color: #1a1a1a !important;
+  margin: 0 0 4px 0 !important;
+}
+
+.client-meta-geo.ant-typography {
+  font-size: 0.88rem !important;
+  font-weight: 500;
+  color: #8c8c8c !important;
+}
+
+/* --- PREMIUM POPUP INTERIOR MODAL DESIGN --- */
+.premium-testimonial-popup .ant-modal-content {
+  border-radius: 16px !important;
+  padding: 0 !important;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25) !important;
+}
+
+.modal-close-icon-custom {
+  font-size: 18px;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.modal-close-icon-custom:hover {
+  background: #ff0000;
+  color: #ffffff;
+}
+
+.popup-layout-split-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-video-container {
+  width: 100%;
+  height: 350px;
+  background: #000;
+}
+
+.popup-native-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup-meta-description-details {
+  padding: 30px;
+  background: #ffffff;
+}
+
+.popup-main-review-heading.ant-typography {
+  font-size: 1.4rem !important;
+  font-weight: 800 !important;
+  color: #1a1a1a !important;
+  margin: 10px 0 14px 0 !important;
+}
+
+.popup-full-scrollable-quote.ant-typography {
+  font-size: 1.05rem !important;
+  line-height: 1.7 !important;
+  color: #333333 !important;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-bottom: 24px !important;
+  padding-right: 10px;
+}
+
+.popup-client-footer-node {
+  border-top: 1px solid #ededed;
+  padding-top: 15px;
+}
+
+.popup-client-headline-name.ant-typography {
+  font-size: 1.15rem !important;
+  font-weight: 700 !important;
+  margin: 0 0 2px 0 !important;
+}
+
+.popup-client-sub-geo.ant-typography {
+  font-size: 0.9rem !important;
+  font-weight: 500;
+}
+
+/* --- ADAPTIVE POPUP RESPONSIVENESS ENGINE --- */
+@media (max-width: 991px) {
+  .testimonials-main-title.ant-typography {
+    font-size: 2rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .testimonials-section-wrapper {
+    padding: 60px 0;
+  }
+  .popup-video-container {
+    height: 240px;
+  }
+  .popup-meta-description-details {
+    padding: 20px;
+  }
+}

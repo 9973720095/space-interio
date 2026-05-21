@@ -1,0 +1,163 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 4%;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: fixed; /* ← sticky se fixed kar diya */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* Body me padding add ki taaki content header ke neeche na chipe */
+body {
+  padding-top: 65px;
+}
+
+.logo-img {
+  width: 180px;
+  height: auto;
+  max-height: 50px;
+  object-fit: contain;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 15px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: 0.3s;
+}
+
+.nav-links li a:hover, 
+.nav-links li a.active {
+  color: #ff0000;
+  border-bottom: 2px solid #ff0000;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quote-btn {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.quote-btn:hover {
+  background-color: #cc0000;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
+
+.desktop-only {
+  display: flex;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.mobile-drawer.ant-drawer-body {
+  padding: 24px 0;
+}
+
+.mobile-nav-links {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+}
+
+.mobile-nav-links li {
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.mobile-nav-links li a {
+  display: block;
+  padding: 16px 24px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.mobile-nav-links li a:hover,
+.mobile-nav-links li a.active {
+  color: #ff0000;
+  background: #fff5f5;
+}
+
+.mobile-quote-btn {
+  margin: 0 24px;
+  width: calc(100% - 48px);
+  padding: 12px;
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  body {
+    padding-top: 65px;
+  }
+
+ .desktop-only {
+    display: none;
+  }
+  
+ .mobile-only {
+    display: flex;
+  }
+
+ .navbar {
+    padding: 10px 4%;
+  }
+
+ .logo-img {
+    width: 160px;
+    max-height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding-top: 60px;
+  }
+
+ .logo-img {
+    width: 140px;
+    max-height: 40px;
+  }
+}

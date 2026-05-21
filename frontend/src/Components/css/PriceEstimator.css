@@ -1,0 +1,168 @@
+.premium-estimator-section {
+  background-color: #fafafa;
+  padding: 100px 0;
+  width: 100%;
+}
+
+.luxury-estimator-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.gold-accent-tag.ant-typography {
+  color: #ff0000 !important;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.luxury-estimator-title.ant-typography {
+  font-size: 2.4rem !important;
+  font-weight: 800 !important;
+  color: #111111 !important;
+  margin: 0 0 16px 0 !important;
+  letter-spacing: -0.5px;
+}
+
+.luxury-estimator-sub.ant-typography {
+  font-size: 1.1rem !important;
+  color: #555555 !important;
+  max-width: 700px;
+  margin: 0 auto !important;
+  line-height: 1.6;
+}
+
+/* --- Premium Unified Selection Rows --- */
+.luxury-card-row-wrapper {
+  max-width: 950px;
+  margin: 0 auto 40px auto;
+}
+
+.luxury-selector-card {
+  background: #ffffff;
+  border: 1px solid #e1e4e8;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luxury-selector-card:hover {
+  border-color: #ff0000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.luxury-selector-card.luxury-active-lock {
+  border-color: #ff0000;
+  background: #ffffff;
+  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.06);
+}
+
+.luxury-icon-box {
+  font-size: 26px;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.3s ease;
+}
+
+.luxury-selector-card.luxury-active-lock .luxury-icon-box,
+.luxury-selector-card:hover .luxury-icon-box {
+  color: #ff0000;
+}
+
+.luxury-text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.luxury-card-title.ant-typography {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #1a1a1a !important;
+  margin: 0 !important;
+}
+
+.luxury-card-sub.ant-typography {
+  font-size: 0.85rem !important;
+  color: #888888 !important;
+}
+
+/* --- Premium Balanced Form Containers --- */
+.luxury-form-architecture {
+  max-width: 850px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  padding: 45px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.02);
+}
+
+.luxury-embedded-form .ant-form-item-label > label {
+  font-size: 0.95rem !important;
+  font-weight: 600 !important;
+  color: #222222 !important;
+}
+
+.luxury-input-field {
+  border-radius: 8px !important;
+}
+
+.luxury-input-field.ant-select .ant-select-selector,
+input.luxury-input-field {
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  border-color: #d9d9d9 !important;
+}
+
+/* Action Execution CTA Blocks */
+.action-button-alignment {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  width: 100%;
+}
+
+.luxury-submit-cta.ant-btn {
+  background-color: #ff0000 !important;
+  border-color: #ff0000 !important;
+  height: 52px !important;
+  padding: 0 45px !important;
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.luxury-submit-cta.ant-btn:hover {
+  background-color: #d90000 !important;
+  box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
+}
+
+/* --- FULL ADVANCED RESPONSIVENESS MEDIA ADJUSTMENTS --- */
+@media (max-width: 767px) {
+  .premium-estimator-section {
+    padding: 60px 0;
+  }
+  .luxury-estimator-title.ant-typography {
+    font-size: 1.9rem !important;
+  }
+  .luxury-form-architecture {
+    padding: 25px 20px;
+  }
+  .luxury-selector-card {
+    padding: 16px;
+  }
+  .luxury-submit-cta.ant-btn {
+    width: 100% !important;
+  }
+}
