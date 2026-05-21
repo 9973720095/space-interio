@@ -163,7 +163,7 @@ const Kitchen = () => {
 
   const filteredProducts = useMemo(() => {
     return filter === "All"
-     ? KITCHEN_CONFIG.card.products
+    ? KITCHEN_CONFIG.card.products
       : KITCHEN_CONFIG.card.products.filter((p) => p.cat === filter);
   }, [filter]);
 
@@ -190,13 +190,15 @@ const Kitchen = () => {
     setLoading(true);
     try {
       const payload = {
-       ...values,
+      ...values,
         productName: selectedProduct? selectedProduct.title : 'General Inquiry',
         productId: selectedProduct? selectedProduct.id : null,
         page: 'Kitchen'
       };
       
-      await axios.post('http://localhost:5000/api/leads/calculate', payload);
+      // SIRF YE LINE CHANGE KI - LOCAL + PRODUCTION DONO KE LIYE
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/leads/calculate`, payload);
+      
       message.success('Quote request sent successfully!');
       form.resetFields();
       setIsModalOpen(false);
