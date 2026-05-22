@@ -43,7 +43,9 @@ const Header = () => {
         <nav className="navbar" aria-label="Main navigation">
           <div className="logo">
             <NavLink to="/" aria-label="Space Interio Home">
-             <img src="https://res.cloudinary.com/diosq0s7w/image/upload/q_auto/f_auto/v1778232393/urbane-logo-transparent-icon-removebg-preview_jepdln.png" style={{ width: '150px', height: 'auto' }} />
+            <img fetchpriority="high" width="200px" height="auto" 
+            src="https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png.webp" class="attachment-full size-full wp-image-5157" alt="logo" srcset="https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png.webp 910w, https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png-300x86.webp 300w, https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png-768x219.webp 768w, https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png-600x171.webp 600w" sizes="(max-width: 910px) 100vw, 910px" />	
+            
             </NavLink>
           </div>
 
