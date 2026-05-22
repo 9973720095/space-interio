@@ -21,15 +21,15 @@ const Footer = () => {
         <div className="footer-col">
           <h4>Connect</h4>
           <div className="social-links">
-            <a href="#"><InstagramOutlined /></a>
+            <a href="https://www.instagram.com/urbanelivingofficial/" target='blank'><InstagramOutlined /></a>
             <a href="#"><WhatsAppOutlined /></a>
             <a href="#"><LinkedinOutlined /></a>
           </div>
-          <p className="contact-email"><MailOutlined /> hello@spaceinterio.co.in</p>
+          <a href="mailto:urbanelivingofficial@gmail.com" className="contact-email"><MailOutlined /> urbanelivingofficial@gmail.com</a>
         </div>
       </div>
       <div className="footer-bar">
-        <p>© 2026 Space Interio. Crafted for Excellence.</p>
+        <p>© 2026 Urbane Living. Crafted for Excellence.</p>
       </div>
     </footer>
   );
