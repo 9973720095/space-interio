@@ -43,13 +43,7 @@ const Header = () => {
         <nav className="navbar" aria-label="Main navigation">
           <div className="logo">
             <NavLink to="/" aria-label="Space Interio Home">
-              <img 
-                className="logo-img" 
-                src="https://spaceinterio.co.in/wp-content/uploads/2024/07/final-space-interio-2-e1720433561518-png.webp" 
-                alt="Space Interio - Interior Design Company" 
-                width="246"
-                height="60"
-              />
+             <img src="https://res.cloudinary.com/diosq0s7w/image/upload/q_auto/f_auto/v1778232393/urbane-logo-transparent-icon-removebg-preview_jepdln.png" style={{ width: '150px', height: 'auto' }} />
             </NavLink>
           </div>
 

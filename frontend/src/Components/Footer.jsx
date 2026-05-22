@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="modern-footer">
       <div className="footer-content">
         <div className="footer-col">
-          <h3>Space Interio</h3>
+          <h3>Urbane Living</h3>
           <p>Redefining luxury interiors with precision engineering and modern aesthetics.</p>
         </div>
         <div className="footer-col">

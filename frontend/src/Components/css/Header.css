@@ -19,10 +19,13 @@ body {
 }
 
 .logo-img {
-  width: 180px;
-  height: auto;
-  max-height: 50px;
-  object-fit: contain;
+  height: 48px;
+  width: auto;
+  image-rendering: -webkit-optimize-contrast; /* Text sharp karega */
+  image-rendering: crisp-edges;
+}
+@media (max-width: 576px) {
+  .logo-img { height: 36px; }
 }
 
 .nav-links {
@@ -133,21 +136,16 @@ body {
     padding-top: 65px;
   }
 
- .desktop-only {
+  .desktop-only {
     display: none;
   }
   
- .mobile-only {
+  .mobile-only {
     display: flex;
   }
 
- .navbar {
+  .navbar {
     padding: 10px 4%;
-  }
-
- .logo-img {
-    width: 160px;
-    max-height: 45px;
   }
 }
 
@@ -155,9 +153,5 @@ body {
   body {
     padding-top: 60px;
   }
-
- .logo-img {
-    width: 140px;
-    max-height: 40px;
-  }
 }
+
