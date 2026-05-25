@@ -130,7 +130,7 @@
     margin: 0 auto !important;
     font-size: 1.1rem !important;
   }
-  
+  .hero-text-block{position: relative;top: 35px}
   .hero-lead-card {
     margin: 20px auto 0 auto; /* Form dynamically centers on tablet/mobile views */
   }

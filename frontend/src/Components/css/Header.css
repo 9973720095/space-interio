@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 4%;
+  padding: 0px 4%;
   background: #ffffff;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   position: fixed; /* ← sticky se fixed kar diya */
@@ -18,7 +18,7 @@ body {
   padding-top: 65px;
 }
 
-.logo-img {
+.logo-img { 
   height: auto !important;
   width: 200px !important;
   image-rendering: -webkit-optimize-contrast; /* Text sharp karega */
