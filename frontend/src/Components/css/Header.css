@@ -11,6 +11,7 @@
   right: 0;
   z-index: 1000;
   width: 100%;
+  height: 60px;
 }
 
 /* Body me padding add ki taaki content header ke neeche na chipe */
@@ -19,8 +20,8 @@ body {
 }
 
 .logo-img { 
-  height: auto !important;
-  width: 200px !important;
+  height: 60px !important;
+  width: 150px !important;
   image-rendering: -webkit-optimize-contrast; /* Text sharp karega */
   image-rendering: crisp-edges;
 }

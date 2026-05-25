@@ -43,10 +43,10 @@ const Header = () => {
           <div className="logo">
             <NavLink to="/" aria-label="Space Interio Home">
               <img 
-                src="https://res.cloudinary.com/diosq0s7w/image/upload/q_auto/f_auto/v1779690982/Urbane-Living-05-25-2026_12_05_PM_felyqs.png"
+                src="https://res.cloudinary.com/diosq0s7w/image/upload/q_auto/f_auto/v1779706583/Urbane-Living-05-25-2026_04_25_PM_blepmc.png"
                 alt="Space Interio Logo" 
-                width="200" 
-                height="auto"
+                width="120" 
+                height="60px"
                 fetchPriority="high"
                 className="header-logo"
               />	

@@ -55,9 +55,10 @@ const Hero = () => {
           <Col xs={24} sm={24} md={24} lg={13} xl={14} className="hero-text-block">
             <header>
               <Title level={1} className="hero-main-title">
-                Create the home <br />
-                <span className="hero-title-break">you love,</span>
-                <span className="hero-highlight-accent"> that fit your budget</span>
+                <span className="hero-highlight-accent">Create The Home</span>
+                 <br />
+                <span className="hero-title-break">You Love,</span>
+                <span className=""> That Fit Your Budget</span>
               </Title>
             </header>
             <Paragraph className="hero-description-text">
@@ -83,7 +84,7 @@ const Hero = () => {
                 className="hero-dynamic-form"
                 requiredMark={false}
               >
-                <Form.Item
+                <Form.Item className="mview"
                   name="fullName"
                   rules={[{ required: true, message: 'Please enter your full name' }]}
                 >
@@ -95,7 +96,7 @@ const Hero = () => {
                   />
                 </Form.Item>
 
-                <Form.Item
+                <Form.Item className="mview"
                   name="phoneNumber"
                   rules={[
                     { required: true, message: 'Please enter your contact number' },
@@ -123,7 +124,7 @@ const Hero = () => {
                   />
                 </Form.Item>
 
-                <Form.Item
+                <Form.Item className="mview"
                   name="emailAddress"
                   rules={[
                     { required: true, message: 'Please enter your email address' },
