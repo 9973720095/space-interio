@@ -32,7 +32,6 @@ const Header = () => {
     { to: '/', label: 'Home', end: true },
     { to: '/kitchen', label: 'Modular Kitchen' },
     { to: '/bedroom', label: 'Bedroom' },
-    // { to: '/living', label: 'Living Room' }
   ];
 
   const closeDrawer = () => setDrawerOpen(false);
@@ -43,9 +42,14 @@ const Header = () => {
         <nav className="navbar" aria-label="Main navigation">
           <div className="logo">
             <NavLink to="/" aria-label="Space Interio Home">
-            <img fetchpriority="high" width="200px" height="auto" 
-            src="https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png.webp" class="attachment-full size-full wp-image-5157" alt="logo" srcset="https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png.webp 910w, https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png-300x86.webp 300w, https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png-768x219.webp 768w, https://urbaneliving.in/wp-content/uploads/2024/07/cropped-Untitled-design-87-png-600x171.webp 600w" sizes="(max-width: 910px) 100vw, 910px" />	
-            
+              <img 
+                src="https://res.cloudinary.com/diosq0s7w/image/upload/q_auto/f_auto/v1779690982/Urbane-Living-05-25-2026_12_05_PM_felyqs.png"
+                alt="Space Interio Logo" 
+                width="200" 
+                height="auto"
+                fetchPriority="high"
+                className="header-logo"
+              />	
             </NavLink>
           </div>
 
