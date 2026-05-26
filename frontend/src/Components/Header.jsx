@@ -32,6 +32,7 @@ const Header = () => {
     { to: '/', label: 'Home', end: true },
     { to: '/kitchen', label: 'Modular Kitchen' },
     { to: '/bedroom', label: 'Bedroom' },
+    { to: '/living', label: 'Living Room' },
   ];
 
   const closeDrawer = () => setDrawerOpen(false);
@@ -45,11 +46,11 @@ const Header = () => {
               <img 
                 src="https://res.cloudinary.com/diosq0s7w/image/upload/q_auto/f_auto/v1779706583/Urbane-Living-05-25-2026_04_25_PM_blepmc.png"
                 alt="Space Interio Logo" 
-                width="120" 
+                width="120"
                 height="60px"
                 fetchPriority="high"
                 className="header-logo"
-              />	
+              />
             </NavLink>
           </div>
 

@@ -16,7 +16,7 @@ const ProjectPreviewSection = () => {
     <section className="project-preview-section">
       <div className="preview-container">
         <Title level={2} style={{ textAlign: 'center', marginBottom: '50px', color: '#fff' }}>
-          Why Space Interio ?
+          Why Urbane Living ?
         </Title>
         
         <Row gutter={[40, 40]}>

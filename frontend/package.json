@@ -9,17 +9,22 @@
     "@testing-library/react": "^16.3.2",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^6.4.3",
+    "aos": "^2.3.4",
     "axios": "^1.16.1",
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
+    "gsap": "^3.15.0",
     "mongodb": "^7.2.0",
     "mongoose": "^9.6.2",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-helmet": "^6.1.0",
+    "react-helmet-async": "^3.0.0",
     "react-router-dom": "^7.15.1",
     "react-scripts": "5.0.1",
+    "three": "^0.184.0",
+    "vanilla-tilt": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -45,5 +50,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.5.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.3"
   }
 }
