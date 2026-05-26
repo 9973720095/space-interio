@@ -54,6 +54,9 @@ const LeadSchema = new mongoose.Schema({
     clientPhone: String,
     clientEmail: String, // ✅ Gmail field add kiya
     roomType: { type: String, default: 'Kitchen' },
+    ceilingType: String, // ← ADDED: Living Room ke liye
+    designStyle: String, // ← ADDED: Living Room ke liye
+    source: String,
     capturedAt: { type: Date, default: Date.now }
 });
 
@@ -95,6 +98,30 @@ app.post('/api/leads/bedroom', async (req, res) => {
         res.status(201).json({ success: true, message: "Bedroom lead saved successfully!" });
     } catch (error) {
         console.error("❌ Bedroom Save Error:", error.message);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// ✅ NAYA ROUTE ADD KIYA: Living Room ke liye - Baaki sab untouched
+app.post('/api/leads/living-room', async (req, res) => {
+    try {
+        console.log("📥 Living Room Lead Incoming:", req.body);
+        
+        const livingRoomLead = new Lead({ 
+            ...req.body, 
+            roomType: 'Living Room',
+            source: req.body.source || 'Living Room Form'
+        });
+        
+        await livingRoomLead.save();
+        console.log("✅ Living Room Data Saved to Atlas!", livingRoomLead);
+        res.status(201).json({ 
+            success: true, 
+            message: "Living Room lead saved successfully!",
+            leadId: livingRoomLead._id 
+        });
+    } catch (error) {
+        console.error("❌ Living Room Save Error:", error.message);
         res.status(500).json({ success: false, error: error.message });
     }
 });
