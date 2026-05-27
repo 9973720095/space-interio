@@ -11,6 +11,7 @@ import StatsAndGallery from './Components/StatsAndGallery';
 import VideoTestimonials from './Components/VideoTestimonials';
 import PriceEstimator from './Components/PriceEstimator';
 import ProjectPreviewSection from './Components/ProjectPreviewSection';
+import Projects from './Pages/Projects';
 
 import Kitchen from './Pages/Kitchen';
 import Bedroom from './Pages/Bedroom';
@@ -42,6 +43,7 @@ function App() {
             <Route path="/terms-conditions" element={<LegalPage type="Terms & Conditions" />} />
             <Route path="/refund-policy" element={<LegalPage type="Refund Policy" />} />
             <Route path="/disclaimer" element={<LegalPage type="Disclaimer" />} />
+            <Route path="/projects" element={<Projects />} />
           </Routes>
           <Footer />
         </main>

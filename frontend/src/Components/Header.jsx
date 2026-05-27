@@ -33,6 +33,7 @@ const Header = () => {
     { to: '/kitchen', label: 'Modular Kitchen' },
     { to: '/bedroom', label: 'Bedroom' },
     { to: '/living', label: 'Living Room' },
+    { to: '/projects', label: 'Delivered Projects' },
   ];
 
   const closeDrawer = () => setDrawerOpen(false);
@@ -137,6 +138,7 @@ const Header = () => {
               <Option value="kitchen">Modular Kitchen</Option>
               <Option value="bedroom">Bedroom</Option>
               <Option value="living">Living Room</Option>
+              <Option value="projects">Projects</Option>
             </Select>
           </Form.Item>
           <Button type="primary" htmlType="submit" loading={loading} block danger>
