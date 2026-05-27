@@ -17,7 +17,6 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: function (origin, callback) {
-    // Allow requests with no origin like mobile apps or curl
     if (!origin) return callback(null, true);
     if (allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
@@ -34,7 +33,6 @@ const MONGO_URI = process.env.MONGO_URI;
 
 console.log("🚀 Initializing Connection to Database...");
 
-// UPDATED: Robust Database Connection with Timeout handling
 mongoose.connect(MONGO_URI, {
     serverSelectionTimeoutMS: 10000,
     directConnection: false,
@@ -44,6 +42,7 @@ mongoose.connect(MONGO_URI, {
 .catch((err) => {
     console.error('❌ FATAL DB CONNECTION ERROR:', err.message);
 });
+
 // Schema setup
 const LeadSchema = new mongoose.Schema({
     serviceType: String,
@@ -52,10 +51,10 @@ const LeadSchema = new mongoose.Schema({
     urgencyScope: String,
     clientName: String,
     clientPhone: String,
-    clientEmail: String, // ✅ Gmail field add kiya
+    clientEmail: String,
     roomType: { type: String, default: 'Kitchen' },
-    ceilingType: String, // ← ADDED: Living Room ke liye
-    designStyle: String, // ← ADDED: Living Room ke liye
+    ceilingType: String,
+    designStyle: String,
     source: String,
     capturedAt: { type: Date, default: Date.now }
 });
@@ -66,15 +65,14 @@ app.post('/api/leads/calculate', async (req, res) => {
     try {
         console.log("📥 Incoming Data:", req.body);
         
-        // ✅ Hero form ke field names ko schema ke sath map kiya
         const leadData = {
             serviceType: req.body.serviceType || '',
             layoutSize: req.body.layoutSize || '',
             materialFinish: req.body.materialFinish || '',
             urgencyScope: req.body.urgencyScope || '',
-            clientName: req.body.clientName || req.body.name || '',      // ✅ name -> clientName
-            clientPhone: req.body.clientPhone || req.body.phone || '',   // ✅ phone -> clientPhone
-            clientEmail: req.body.clientEmail || req.body.email || '',   // ✅ email -> clientEmail
+            clientName: req.body.clientName || req.body.name || '',
+            clientPhone: req.body.clientPhone || req.body.phone || '',
+            clientEmail: req.body.clientEmail || req.body.email || '',
             roomType: req.body.roomType || 'Kitchen',
             source: req.body.source || 'Hero Form'
         };
@@ -102,7 +100,6 @@ app.post('/api/leads/bedroom', async (req, res) => {
     }
 });
 
-// ✅ NAYA ROUTE ADD KIYA: Living Room ke liye - Baaki sab untouched
 app.post('/api/leads/living-room', async (req, res) => {
     try {
         console.log("📥 Living Room Lead Incoming:", req.body);
@@ -122,6 +119,34 @@ app.post('/api/leads/living-room', async (req, res) => {
         });
     } catch (error) {
         console.error("❌ Living Room Save Error:", error.message);
+        res.status(500).json({ success: false, error: error.message });
+    }
+});
+
+// ✅ NAYA ROUTE - PROJECTS PAGE KE LIYE
+app.post('/api/leads/projects', async (req, res) => {
+    try {
+        console.log("📥 Projects Lead Incoming:", req.body);
+        
+        const projectsLead = new Lead({ 
+            ...req.body,
+            serviceType: 'Delivered Projects',
+            roomType: 'Projects',
+            clientName: req.body.name || req.body.clientName || '',
+            clientPhone: req.body.phone || req.body.clientPhone || '',
+            clientEmail: req.body.email || req.body.clientEmail || '',
+            source: req.body.source || 'Delivered Projects Page'
+        });
+        
+        await projectsLead.save();
+        console.log("✅ Projects Data Saved to Atlas!", projectsLead);
+        res.status(201).json({ 
+            success: true, 
+            message: "Projects lead saved successfully!",
+            leadId: projectsLead._id 
+        });
+    } catch (error) {
+        console.error("❌ Projects Save Error:", error.message);
         res.status(500).json({ success: false, error: error.message });
     }
 });
