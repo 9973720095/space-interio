@@ -18,6 +18,8 @@ import Bedroom from './Pages/Bedroom';
 import LivingRoom from './Pages/LivingRoom';
 import LegalPage from './Pages/LegalPage';
 import ScrollToTop from './Components/ScrollToTop';
+import Blogs from './Pages/Blogs';
+import BlogDetail from "./Pages/BlogDetail";
 
 function App() {
   return (
@@ -44,6 +46,8 @@ function App() {
             <Route path="/refund-policy" element={<LegalPage type="Refund Policy" />} />
             <Route path="/disclaimer" element={<LegalPage type="Disclaimer" />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/Blogs" element={<Blogs />} />
+            <Route path="/blogs/:slug" element={<BlogDetail />} />
           </Routes>
           <Footer />
         </main>
