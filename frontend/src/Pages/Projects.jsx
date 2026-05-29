@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import axios from "axios";
+import Hero from "../Components/Hero";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -317,6 +318,7 @@ const Projects = () => {
 
   return (
     <>
+    <Hero />
       <Helmet>
         <title>Delivered Projects - 500+ Home Interiors | Urbane Living Delhi NCR</title>
         <meta
@@ -332,18 +334,6 @@ const Projects = () => {
 
       <section className="py-12 md:py-16 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-1 h-8 bg-[#E63946]"></div>
-            <h1 className="text-4xl md:text-5xl font-black">
-              Urbane Delivered Homes
-            </h1>
-          </div>
-          <p className="text-gray-600 max-w-3xl text-base md:text-lg mb-12">
-            Urbane Delivered Homes features expertly crafted, personalized
-            interiors, showcasing stunning transformations and seamless
-            execution for inspiring, real home makeovers.
-          </p>
-
           <div className="bg-gradient-to-b from-pink-50 to-white rounded-2xl p-6 md:p-8">
             <div className="flex items-center gap-3 mb-2">
               <div className="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center">
@@ -357,10 +347,12 @@ const Projects = () => {
               </div>
               <div>
                 <h2 className="text-2xl md:text-3xl font-bold">
-                  Featured Delivered Homes
+                  Urbane Delivered Homes
                 </h2>
                 <p className="text-gray-600 text-sm md:text-base">
-                  Browse our top home interior projects for May, 2026, handpicked by our experts.
+                  Urbane Delivered Homes features expertly crafted, personalized
+                    interiors, showcasing stunning transformations and seamless
+                    execution for inspiring, real home makeovers.
                 </p>
               </div>
             </div>
@@ -496,7 +488,7 @@ const Projects = () => {
                 disabled={loading}
                 className="w-full bg-[#E63946] py-4 rounded-lg font-bold text-lg hover:shadow-[0_0_30px_#E63946] hover:scale-[1.02] transition-all duration-300 disabled:opacity-50"
               >
-                {loading? "SUBMITTING..." : "DELIVERED PROJECTS"}
+                {loading? "SUBMITTING..." : "GET FREE QUOTE"}
               </button>
               <p className="text-xs text-gray-400 text-center">
                 By submitting this form, you agree to the{" "}
