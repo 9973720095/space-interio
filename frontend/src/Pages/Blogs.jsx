@@ -16,7 +16,6 @@ const Blogs = () => {
     fetchBlogs();
   }, []);
 
-
   const fetchBlogs = async () => {
     setLoading(true);
     try {
@@ -114,7 +113,7 @@ const Blogs = () => {
       ];
 
       setFeaturedBlog(data.find((b) => b.isFeatured));
-      setBlogs(data.filter((b) =>!b.isFeatured));
+      setBlogs(data.filter((b) => !b.isFeatured));
     } catch (error) {
       console.error("Error fetching blogs:", error);
     } finally {
@@ -124,7 +123,6 @@ const Blogs = () => {
 
   const categories = ["All", "Kitchen", "Bedroom", "Living Room", "Sustainability", "Design Tips", "Vastu"];
 
-  // SEARCH + FILTER LOGIC
   const filteredBlogs = blogs.filter((blog) => {
     const matchesCategory = category === "All" || blog.category === category;
     const searchLower = searchTerm.toLowerCase().trim();
@@ -138,7 +136,6 @@ const Blogs = () => {
     return matchesCategory && matchesSearch;
   });
 
-  // SCHEMA.ORG STRUCTURED DATA
   const blogSchema = {
     "@context": "https://schema.org",
     "@type": "Blog",
@@ -231,20 +228,11 @@ const Blogs = () => {
     <>
       <Helmet>
         <title>Interior Design Blog - Tips, Trends & Ideas 2026 | Urbane Living</title>
-        <meta
-          name="description"
-          content="Expert interior design tips, latest trends, Vastu guides, and home decor ideas. Read Urbane Living's blog for kitchen, bedroom, living room inspiration for Delhi NCR homes."
-        />
-        <meta
-          name="keywords"
-          content="interior design blog, home decor tips, kitchen design ideas, bedroom interior, living room trends, vastu shastra, sustainable design, Delhi interior designer blog"
-        />
+        <meta name="description" content="Expert interior design tips, latest trends, Vastu guides, and home decor ideas. Read Urbane Living's blog for kitchen, bedroom, living room inspiration for Delhi NCR homes." />
+        <meta name="keywords" content="interior design blog, home decor tips, kitchen design ideas, bedroom interior, living room trends, vastu shastra, sustainable design, Delhi interior designer blog" />
         <link rel="canonical" href="https://urbaneliving.in/blogs" />
         <meta property="og:title" content="Interior Design Blog | Urbane Living" />
-        <meta
-          property="og:description"
-          content="Latest interior design trends, tips, and inspiration for modern Indian homes. Expert advice from Urbane Living designers."
-        />
+        <meta property="og:description" content="Latest interior design trends, tips, and inspiration for modern Indian homes. Expert advice from Urbane Living designers." />
         <meta property="og:image" content="https://urbaneliving.in/og-blogs.jpg" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://urbaneliving.in/blogs" />
@@ -257,7 +245,6 @@ const Blogs = () => {
         </script>
       </Helmet>
 
-      {/* Hero Section - Fully Responsive */}
       <section className="bg-gradient-to-br from-[#2D1B4E] via-[#3D2A5E] to-[#2D1B4E] text-white py-12 sm:py-16 md:py-24 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 leading-tight">
@@ -277,13 +264,19 @@ const Blogs = () => {
                 className="w-full px-4 sm:px-6 py-3 sm:py-4 pr-12 rounded-full text-black text-base sm:text-lg focus:outline-none focus:ring-4 focus:ring-[#E63946]/50"
                 aria-label="Search blog articles"
               />
-              
+              <svg
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-5 h-5 sm:w-6 sm:h-6 text-gray-400"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Featured Blog - Responsive */}
       {featuredBlog && (
         <section className="py-8 md:py-12 lg:py-16 px-4 bg-white -mt-6 sm:-mt-8">
           <div className="max-w-7xl mx-auto">
@@ -315,7 +308,7 @@ const Blogs = () => {
                   </div>
                   <Link
                     to={`/blogs/${featuredBlog.slug}`}
-                    className="inline-flex items-center gap-2 bg-[#E63946] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:shadow-[0_0_20px_#E63946] hover:scale-105 transition-all text-sm sm:text-base"
+                    className="inline-flex items-center gap-2 bg-[#E63946] text-white px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold hover:shadow-[0_20px_#E63946] hover:scale-105 transition-all text-sm sm:text-base"
                   >
                     Read Full Article
                     <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -337,7 +330,6 @@ const Blogs = () => {
         </section>
       )}
 
-      {/* Category Filter - Responsive */}
       <section className="py-6 sm:py-8 px-4 bg-white sticky top-0 z-40 border-b">
         <div className="max-w-7xl mx-auto">
           <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 scrollbar-hide">
@@ -358,10 +350,9 @@ const Blogs = () => {
         </div>
       </section>
 
-      {/* Blog Grid - Fully Responsive */}
       <section className="py-8 sm:py-12 md:py-16 px-4 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          {filteredBlogs.length > 0? (
+          {filteredBlogs.length > 0 ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
               {filteredBlogs.map((blog) => (
                 <BlogCard key={blog._id} blog={blog} />

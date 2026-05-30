@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { Modal, Form, Input, Select, Button, message } from 'antd';
 import axios from 'axios';
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
 import "../Components/css/Kitchen.css";

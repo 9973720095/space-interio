@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet } from "react-helmet-async";
 import { message } from 'antd';
 import axios from 'axios';
 import Header from '../Components/Header';

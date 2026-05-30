@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet-async";
 const BlogDetail = () => {
   const { slug } = useParams();
   const [blog, setBlog] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const dummyBlogs = [
@@ -177,12 +178,21 @@ const BlogDetail = () => {
 
     const foundBlog = dummyBlogs.find((b) => b.slug === slug);
     setBlog(foundBlog);
+    setLoading(false);
     window.scrollTo(0, 0);
   }, [slug]);
 
-  if (!blog) {
+  if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-[#E63946]"></div>
+      </div>
+    );
+  }
+
+  if (!blog) {
+    return (
+      <div className="min-h-screen flex items-center justify-center px-4">
         <div className="text-center">
           <h2 className="text-2xl font-bold mb-4">Blog not found</h2>
           <Link to="/blogs" className="text-[#E63946] hover:underline">← Back to Blogs</Link>
@@ -204,6 +214,14 @@ const BlogDetail = () => {
         <meta property="og:type" content="article" />
         <meta property="article:published_time" content={blog.date} />
         <meta property="article:author" content={blog.author} />
+        <meta property="article:section" content={blog.category} />
+        {blog.tags.map(tag => (
+          <meta key={tag} property="article:tag" content={tag} />
+        ))}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={blog.title} />
+        <meta name="twitter:description" content={blog.excerpt} />
+        <meta name="twitter:image" content={blog.img} />
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -226,103 +244,109 @@ const BlogDetail = () => {
               }
             },
             description: blog.excerpt,
-            articleBody: blog.content.replace(/<[^>]*>/g, '')
+            articleBody: blog.content.replace(/<[^>]*>/g, ''),
+            keywords: blog.tags.join(", ")
           })}
         </script>
       </Helmet>
 
-      <article className="py-8 md:py-12 px-4 bg-white">
+      <article className="py-6 sm:py-8 md:py-12 px-4 bg-white" itemScope itemType="https://schema.org/BlogPosting">
         <div className="max-w-4xl mx-auto">
-          <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8">
-            <Link to="/" className="hover:text-[#E63946]">Home</Link>
+          <nav className="flex items-center gap-2 text-xs sm:text-sm text-gray-500 mb-6 md:mb-8 overflow-x-auto" aria-label="Breadcrumb">
+            <Link to="/" className="hover:text-[#E63946] whitespace-nowrap">Home</Link>
             <span>/</span>
-            <Link to="/blogs" className="hover:text-[#E63946]">Blogs</Link>
+            <Link to="/blogs" className="hover:text-[#E63946] whitespace-nowrap">Blogs</Link>
             <span>/</span>
             <span className="text-gray-700 line-clamp-1">{blog.title}</span>
           </nav>
 
           <div className="mb-4">
-            <span className="bg-[#E63946] text-white px-4 py-1.5 rounded-full text-sm font-semibold">
+            <span className="bg-[#E63946] text-white px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold">
               {blog.category}
             </span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black mb-4 sm:mb-6 leading-tight" itemProp="headline">
             {blog.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 pb-8 mb-8 border-b">
-            <div className="flex items-center gap-3">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 pb-6 sm:pb-8 mb-6 sm:mb-8 border-b">
+            <div className="flex items-center gap-2 sm:gap-3" itemProp="author" itemScope itemType="https://schema.org/Person">
               <img
                 src={blog.authorImg}
                 alt={blog.author}
-                className="w-12 h-12 rounded-full object-cover"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+                itemProp="image"
               />
               <div>
-                <div className="font-semibold">{blog.author}</div>
-                <div className="text-sm text-gray-500">Interior Designer</div>
+                <div className="font-semibold text-sm sm:text-base" itemProp="name">{blog.author}</div>
+                <div className="text-xs sm:text-sm text-gray-500">Interior Designer</div>
               </div>
             </div>
-            <div className="flex items-center gap-4 text-sm text-gray-500">
-              <span>{new Date(blog.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+            <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500">
+              <time dateTime={blog.date} itemProp="datePublished">
+                {new Date(blog.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}
+              </time>
               <span>•</span>
               <span>{blog.readTime}</span>
             </div>
           </div>
 
-          <div className="rounded-2xl overflow-hidden mb-8">
+          <div className="rounded-xl sm:rounded-2xl overflow-hidden mb-6 sm:mb-8">
             <img
               src={blog.img}
               alt={blog.title}
               className="w-full h-auto"
               loading="eager"
+              itemProp="image"
             />
           </div>
 
           <div 
-            className="prose prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-h2:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-6"
+            className="prose prose-sm sm:prose-base lg:prose-lg max-w-none prose-headings:font-bold prose-headings:text-gray-900 prose-h2:text-2xl sm:prose-h2:text-3xl prose-h2:mt-8 sm:prose-h2:mt-10 prose-h2:mb-3 sm:prose-h2:mb-4 prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4 sm:prose-p:mb-6"
             dangerouslySetInnerHTML={{ __html: blog.content }}
+            itemProp="articleBody"
           />
 
-          <div className="flex flex-wrap gap-2 mt-12 pt-8 border-t">
+          <div className="flex flex-wrap gap-2 mt-8 sm:mt-12 pt-6 sm:pt-8 border-t">
             <span className="font-semibold text-gray-700">Tags:</span>
             {blog.tags.map((tag, i) => (
-              <span key={i} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
+              <span key={i} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs sm:text-sm" itemProp="keywords">
                 #{tag}
               </span>
             ))}
           </div>
 
-          <div className="mt-8 p-6 bg-gray-50 rounded-2xl">
-            <div className="font-semibold mb-3">Share this article:</div>
-            <div className="flex gap-3">
+          <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-gray-50 rounded-xl sm:rounded-2xl">
+            <div className="font-semibold mb-3 text-sm sm:text-base">Share this article:</div>
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               <button 
                 onClick={() => window.open(`https://www.facebook.com/sharer/sharer.php?u=${window.location.href}`, '_blank')}
-                className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                className="bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base"
               >
                 Facebook
               </button>
               <button 
                 onClick={() => window.open(`https://twitter.com/intent/tweet?url=${window.location.href}&text=${blog.title}`, '_blank')}
-                className="bg-sky-500 text-white px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors"
+                className="bg-sky-500 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-sky-600 transition-colors text-sm sm:text-base"
               >
                 Twitter
               </button>
               <button 
                 onClick={() => window.open(`https://wa.me/?text=${blog.title} ${window.location.href}`, '_blank')}
-                className="bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors"
+                className="bg-green-500 text-white px-3 sm:px-4 py-2 rounded-lg hover:bg-green-600 transition-colors text-sm sm:text-base"
               >
                 WhatsApp
               </button>
             </div>
           </div>
 
-          <div className="mt-12">
+          <div className="mt-8 sm:mt-12">
             <Link
               to="/blogs"
-              className="inline-flex items-center gap-2 text-[#E63946] font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-[#E63946] font-semibold hover:gap-3 transition-all text-sm sm:text-base"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               Back to All Blogs
